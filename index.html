@@ -1,16 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html>
 <body>
-    <div>wjh</div>
-    <button onclick="clickxyj">xyj</button>
+<script type="text/javascript">
+var i=3;
+var s="我耍赖，我不关，就孩子气";
+function clock1(){
+	i-=1;
+	if(i>0)setTimeout("clock1()",1000);
+	else alert(s,clock2());
+}
+clock1();
+function clock2(){
+	i=Math.floor(Math.random()*10);
+	var i2=i+1;
+	s="再给我"+i2+"秒";
+	i=4;
+	if(4==i){
+		debugger;
+		window.close()
+	};
+	clock1();
+}
+</script>
 </body>
-    <script type="text/javascript">
-        function clickxyj() {
-            alert("love");
-        }
-    </script>
 </html>
