@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery
+/jquery-1.4.min.js"></script>
+<style type="text/css">
+#div1, #div2,#div3
+{float:left; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+<script type="text/javascript">
+$(document).ready(function (){
+	debugger;
+	var height=window.screen.availHeight;
+	var width=window.screen.availWidth;
+	document.getElementById("div1").style.height=height/3+"px";
+	document.getElementById("div2").style.height=height/3+"px";
+	document.getElementById("div3").style.height=height/3+"px";
+	document.getElementById("div1").style.width=width/3+"px";
+	document.getElementById("div2").style.width=width/3+"px";
+	document.getElementById("div3").style.width=width/3+"px";
+});
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+document.getElementById("h").style.visibility="hidden";
+document.getElementById("xz2").innerHTML="不复合";
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+if(ev.target.id!="div1"){
+	document.getElementById("h").style.visibility="visible";
+};
+ev.target.appendChild(document.getElementById("h"));
+if(ev.target.id=="div3"){
+	document.getElementById("xz2").innerHTML="复合";
+};
+}
+</script>
+</head>
+<body>
+<div id="h" style="visibility:hidden">复合&happiness</div>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+	请按住鼠标把图片拖向你心中的答案：
+  <img src="deskImage.jpg" draggable="true" ondragstart="drag(event)" id="drag1" style="height:50%;width:50%"/>
+</div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"><div id="xz1">复合</div></div>
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"><div id="xz2">不复合</div></div>
+</body>
+</html>
