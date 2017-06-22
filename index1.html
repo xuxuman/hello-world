@@ -43,9 +43,13 @@ if(ev.target.id=="div3"){
 	document.getElementById("xz2").innerHTML="复合";
 };
 }
+function correct(){
+	document.getElementById("answer").value="徐樱菊深深滴爱着王金辉，当然啦，王金辉也是吧，嘿嘿，然后呢，有情人终成眷属";
+}
 </script>
 </head>
 <body>
+	what do you think in your heart about the trend of our relationship:<input id="answer" onblur="correct()"/>
 <div id="h" style="visibility:hidden">复合&happiness</div>
 <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
 	请按住鼠标把图片拖向你心中的答案：
